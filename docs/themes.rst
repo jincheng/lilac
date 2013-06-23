@@ -39,6 +39,8 @@ Here I maintain a lilac's themes list:
 
 - `less <https://github.com/hit9/lilac-theme-less>`_ - a clean theme for lilac. by `hit9 <https://github.com/hit9>`_
 
+- `pure <https://github.com/kshiftlv/lilac-theme-pure>`_ - by `kshiftlv <https://github.com/kshiftlv>`_
+
 The built in theme is classic, also the demo site's theme.
 
 Have you made one? Please send a pull request on `lilac's Repo <https://github.com/hit9/lilac>`_, append yours to this list.
