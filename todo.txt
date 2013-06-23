@@ -1,11 +1,8 @@
-lilac
------
--     more temaplates's
+- [ ] more temaplates's
 - [x] add about and config.toml to watch
 - [x] need to init about,blog and author in models?
 - [x] exception capture for port
 - [x] intsall command now pip install -e "git+git://github.com/hit9/lilac.git@dev#egg=lilac" --upgrade
 - [x] add zh-docs
 - [x] readme
--     doc for theme dev
--     use mdconf for header?
+- [ ] doc for theme dev
