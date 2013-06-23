@@ -3,9 +3,11 @@ Lilac
 
 Lilac is a MIT Licensed static blog generator, written in Python. It's fast, simple enough and easy to use.
 
-Documentation is already on https://lilac.readthedocs.org/
+Lastest version: v0.3.6
 
-**Lilac may not be stable since the v1.0 hasn't come.** 
+Documentation is already on readthedocs: [English Version](https://lilac.readthedocs.org/), [简体中文版本](https://lilac-zh.readthedocs.org)
+
+News about lilac is here: http://lilac.hit9.org/
 
 Features
 --------
@@ -20,11 +22,9 @@ Features
 Demo Sites
 ----------
 
-- [Make Difference](http://lilac.hit9.org/), repo: https://github.com/hit9/lilac/tree/gh-pages
+- [Lilac News](http://lilac.hit9.org/), repo: https://github.com/hit9/lilac-website/tree/gh-pages
 
 - [Make Difference](http://lilac-less.hit9.org/), repo: https://github.com/hit9/lilac-theme-less/tree/gh-pages
-
-- [Follow My Heart](http://hit9.org), repo: https://github.com/hit9/hit9.github.com
 
 Install
 -------
@@ -59,14 +59,6 @@ tags = ["sample", "some-tag"]
 
 Commands
 ---------
-
-Show help:
-
-    $ lilac --help
-
-Show version:
-
-    $ lilac --version
 
 To deploy a new blog in new-created directory:
 
@@ -112,6 +104,7 @@ Theme list:
 
 - [classic](https://github.com/hit9/lilac-theme-classic) - the default theme for lilac. by @hit9
 - [less](https://github.com/hit9/lilac-theme-less) - a clean theme for lilac. by @hit9
+- [pure](https://github.com/kshiftlv/lilac-theme-pure) - a clean theme for lilac by @kshiftlv
 
 Have you made one? Please send a pull request on lila's repo, append yours to this list.
 
