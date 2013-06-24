@@ -47,7 +47,7 @@ Then, install lilac in your virtualenv:
 
     $ pip install lilac
 
-Or to intall the lastest codes from github.com:
+Or to intall the latest codes from github.com:
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ Just run `pip` with root privileges:
 
     $ sudo pip install lilac
 
-Or to install the lastest codes from github.com:
+Or to install the latest codes from github.com:
 
 .. code-block:: bash
 
@@ -71,7 +71,7 @@ Or to install the lastest codes from github.com:
 Get the Code
 -------------
 
-Lilac is hosted on GitHub, where you can get `the lastest code <https://github.com/hit9/lilac>`_.
+Lilac is hosted on GitHub, where you can get `the latest code <https://github.com/hit9/lilac>`_.
 
 You can clone the repository:
 
@@ -90,7 +90,7 @@ Once you get the code, you can install it into your site-packages:
 Upgrade your Lilac
 -------------------
 
-Whenever you want to upgrade your lilac to lastest version:
+Whenever you want to upgrade your lilac to latest version:
 
 .. code-block:: bash
 
