@@ -9,6 +9,8 @@ Documentation is already on readthedocs: [English Version](https://lilac.readthe
 
 News about lilac is here: http://lilac.hit9.org/
 
+![](./screen-shots/post.png)
+
 Features
 --------
 
@@ -111,7 +113,7 @@ Have you made one? Please send a pull request on lila's repo, append yours to th
 Tools
 -------
 
-- ililac - a tool to run lilac's server and rebuilder in the background:
+- ililac - a tool to run lilac's server and rebuilder in the background(included in v0.3.7):
 
   ```bash
   $ cd myblog
@@ -123,6 +125,8 @@ Tools
   ```bash
   $ ililac stop
   ```
+
+  With this tool, we can write blog with at most one shell session.
 
 Documents
 ---------
