@@ -38,23 +38,23 @@ Configure your Blog
 The configuration is dead minimal, let's take a look at the `config.toml`::
 
     root_path = ""
-    
+
     [blog]
     name = "Make Difference"
-    description = "Here goes your blog's description" 
+    description = "Here goes your blog's description"
     url = "http://your-blog.org"
     theme = "classic"
-    
+
     [author]
     name = "me"
     email = "me@some.com"
-    
+
     [disqus]
     shortname = "your-disqus-short-name"
 
     [theme.vars]
     github = "your-github-username"
-    
+
 The configuration is in `TOML <https://github.com/mojombo/toml>`_, but you really needn't to
 learn this language, it is obvious and simple.
 
@@ -106,7 +106,7 @@ You can fire up another shell to run lilac's server:
 
     $ make serve
 
-This command will start a web server here and tell lilac to start watch file changes - 
+This command will start a web server here and tell lilac to start watch file changes -
 once you update source files, lilac will auto rebuild the blog.
 
 To see build results in action, point your browser at http://localhost:8888
@@ -125,6 +125,24 @@ Each time writing a new post, you just do these steps:
 3. touch a new file under `src/post/` and then start writing.
 
 4. see results in browser after doing a save.
+
+But, from v0.3.7,  we have built-in tool :ref:`ililac <ililac>`,  and writing
+becomes more easy:
+
+Use ililac
+----------
+
+:ref:`ililac <ililac>` runs lilac's server and rebuilder in the background,
+each time we start writing, just::
+
+    $ cd myblog
+    $ ililac start
+
+remember to stop the daemon when finish writing::
+
+    $ ililac stop
+
+We just need at most one shell session to blog.
 
 What's Next?
 ------------

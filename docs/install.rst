@@ -47,12 +47,6 @@ Then, install lilac in your virtualenv:
 
     $ pip install lilac
 
-Or to intall the latest codes from github.com:
-
-.. code-block:: bash
-
-    $ pip install -e "git+git://github.com/hit9/lilac.git#egg=lilac" --upgrade
-
 System-Wide Installation
 ------------------------
 
@@ -61,12 +55,6 @@ Just run `pip` with root privileges:
 .. code-block:: bash
 
     $ sudo pip install lilac
-
-Or to install the latest codes from github.com:
-
-.. code-block:: bash
-
-    $ sudo pip install -e "git+git://github.com/hit9/lilac.git#egg=lilac" --upgrade
 
 Get the Code
 -------------
@@ -91,12 +79,6 @@ Upgrade your Lilac
 -------------------
 
 Whenever you want to upgrade your lilac to latest version:
-
-.. code-block:: bash
-
-    $ [sudo] pip install -e "git+git://github.com/hit9/lilac.git#egg=lilac" --upgrade
-
-Or, from pypi:
 
 .. code-block:: bash
 

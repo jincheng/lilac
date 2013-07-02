@@ -10,24 +10,29 @@ Overview
 
 All command line usage::
 
-    Usage:
-      lilac [-h|-v]
-      lilac build
-      lilac deploy
-      lilac clean
-      lilac serve [<port>] [--watch]
-    
-    Options:
-      -h --help     show this help message
-      -v --version  show version
-      --watch       watch source files for changes
-      <port>        which port for server to use(default: 8888)
-    
-    Commands:
-      deploy        deploy blog in current directory
-      build         build source files to htmls
-      clean         remove files built by lilac
-      serve         start a web server, as a option, start watching
+   Usage:
+     lilac [-h|-v]
+     lilac build
+     lilac deploy
+     lilac clean
+     lilac serve [<port>] [--watch]
+
+   Options:
+     -h --help     show this help message
+     -v --version  show version
+     --watch       watch source files for changes
+     <port>        which port for server to use(default: 8888)
+
+   Commands:
+     deploy        deploy blog in current directory
+     build         build source files to htmls
+     clean         remove files built by lilac
+     serve         start a web server, as a option, start watching
+
+   Tools:
+     ililac        run lilac's server and rebuilder as a daemon running in the background
+
+
 
 Options
 -------
@@ -87,3 +92,23 @@ To watch source changes the same time when the cute web server running::
 When you save your writings, lilac can detect the changes and start rebuilding.
 
 Note: the preview serve will run the site from root the regardless of config `root_path`.
+
+.. _ililac:
+
+ililac
+------
+
+ililac is a tool to run lilac's server and rebuilder in the background.
+
+::
+
+    $ cd myblog
+    $ ililac start
+
+to stop the daemon::
+
+    $ ililac stop
+
+With this tool, we can write blog with at most one shell session.
+
+Note: ililac is included into lilac in version 0.3.7

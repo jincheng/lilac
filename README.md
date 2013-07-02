@@ -16,7 +16,7 @@ Features
 
 - TOML and GFM based.
 - 100% in Python (any linux distribution comes with python)
-- Built-in tags & feed & theme & codes highlighting support
+- Built-in Tags & Feed & Theme & Code Highlighting support
 - We use Jinja2 to render templates.
 - No categories, only tags. (It's A GOOD FEATURE!)
 - Minimal configuration.
@@ -39,7 +39,7 @@ New python executable in venv/bin/python
 Installing setuptools............done.
 Installing pip...............done.
 $ . venv/bin/activate
-$ pip install -e "git+git://github.com/hit9/lilac.git#egg=lilac" --upgrade
+$ pip install lilac
 ```
 
 Sample Post
@@ -77,10 +77,6 @@ To remove all htmls lilac built:
 To start a simple HTTP server:
 
     $ lilac serve
-
-You can tell lilac which port to use(the default port is 8888):
-
-    $ lilac serve 8080
 
 To watch source changes the same time when the cute web server running:
 
