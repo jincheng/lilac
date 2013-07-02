@@ -6,3 +6,7 @@ recursive-exclude lilac/ .*.swp
 recursive-exclude lilac/ .*.swo
 recursive-exclude screen-shots * 
 recursive-exclude docs/ *
+recursive-exclude venv/ *
+recursive-exclude dist/ *
+recursive-exclude build/ *
+recursive-exclude lilac.egg-info/ *
