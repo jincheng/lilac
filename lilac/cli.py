@@ -73,7 +73,10 @@ Commands:
   deploy        deploy blog in current directory
   build         build source files to htmls
   clean         remove files built by lilac
-  serve         start a web server, as a option, start watching"""
+  serve         start a web server, as a option, start watching
+
+Tools:
+  ililac        run lilac's server and rebuilder as a daemon running in the background"""
 
     arguments = docopt(main.__doc__, version='lilac version: ' + version)
     # set logger's level to info

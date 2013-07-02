@@ -3,7 +3,7 @@ Lilac
 
 Lilac is a MIT Licensed static blog generator, written in Python. It's fast, simple enough and easy to use.
 
-Latest version: v0.3.6
+Latest version: v0.3.7
 
 Documentation is already on readthedocs: [English Version](https://lilac.readthedocs.org/), [简体中文版本](https://lilac-zh.readthedocs.org)
 
@@ -107,6 +107,22 @@ Theme list:
 - [pure](https://github.com/kshiftlv/lilac-theme-pure) - a clean theme for lilac by @kshiftlv
 
 Have you made one? Please send a pull request on lila's repo, append yours to this list.
+
+Tools
+-------
+
+- ililac - a tool to run lilac's server and rebuilder in the background:
+
+  ```bash
+  $ cd myblog
+  $ ililac start
+  ```
+
+  to stop the daemon:
+
+  ```bash
+  $ ililac stop
+  ```
 
 Documents
 ---------
