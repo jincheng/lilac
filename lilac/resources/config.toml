@@ -24,7 +24,7 @@ description = "Here is your blog's description"
 url = "http://your-domain.org"
 
 # which theme to use?
-theme = "classic"
+theme = "less"
 
 [author]
 name = "me"
@@ -36,4 +36,4 @@ shortname = "your-disqus-short-name"
 
 [theme]  # you can reset theme's default configuration here
 
-github = "hit9"  # classic theme requires your github username
+github = "hit9"  # theme requires your github username

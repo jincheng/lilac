@@ -22,7 +22,7 @@ class Config(object):
             'name': 'Blog\'s name',
             'description': 'Blog\'s description',
             'url': 'http://your-site.com',
-            'theme': 'classic'
+            'theme': 'less'
         },
         'author': {
             'name': 'me',

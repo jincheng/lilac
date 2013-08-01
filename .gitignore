@@ -13,3 +13,4 @@ tests/
 test.md
 Test
 docs/_build
+Makefile
