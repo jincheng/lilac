@@ -4,6 +4,7 @@
   ililac start
   ililac stop
   ililac restart
+  ililac status
 """
 
 from daemon import Daemon
@@ -36,6 +37,8 @@ def main():
         lilac_daemon.stop()
     elif dct["restart"]:
         lilac_daemon.restart()
+    elif dct["status"]:
+        lilac_daemon.status()
     else:
         exit(__doc__)
 
