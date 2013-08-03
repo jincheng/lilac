@@ -3,3 +3,4 @@
 - [ ] move disqus to theme.vars in config.toml
 - [x] add status for ililac
 - [ ] rename the sample post to helloworld.md
+- [ ] jinja2 requirement versiion not correct now. We should use >= instead of ==

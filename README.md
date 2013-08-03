@@ -42,6 +42,10 @@ $ . venv/bin/activate
 $ pip install lilac
 ```
 
+Installation troubles:
+
+- cann't find Python.h. Solution: install `python-dev` package (on ubuntu: `sudo apt-get install python-dev`. There's no such issue on OSX)
+
 Sample Post
 -----------
 
