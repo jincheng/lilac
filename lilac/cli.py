@@ -25,7 +25,7 @@ def task(task_func):
 
 @task
 def deploy():
-    """deploy blog: classic/, src/post/, config.toml, Makefile"""
+    """deploy blog: less/, src/post/, config.toml, Makefile"""
     lib_dir = dirname(__file__)  # this library's directory
     res = join(lib_dir, "resources")
     call("rsync -aqu " + join(res, "*") + " .", shell=True)

@@ -19,11 +19,11 @@ You really should manage your theme in a standalone git repository,
 and use it as a submodule of your blog's submodule if your blog is under
 git versioning too.
 
-For instance, add theme `classic` a submodule of your blog's repo::
+For instance, add theme `less` a submodule of your blog's repo::
 
-    $ git submodule add git://github.com/hit9/lilac-theme-classic.git classic
+    $ git submodule add git://github.com/hit9/lilac-theme-less.git less
 
-If you want to modify a theme created by someone else(i.e. classic), just fork his(or her) repo,
+If you want to modify a theme created by someone else, just fork his(or her) repo,
 and then modify it.
 
 But it's 100% ok to use themes not in the submodule way.
@@ -35,9 +35,9 @@ Theme List
 
 Here I maintain a lilac's themes list:
 
-- `classic <https://github.com/hit9/lilac-theme-classic>`_ - the default theme for lilac. by `hit9 <https://github.com/hit9>`_
+- `less <https://github.com/hit9/lilac-theme-less>`_ - a clean theme for lilac, default theme. by `hit9 <https://github.com/hit9>`_
 
-- `less <https://github.com/hit9/lilac-theme-less>`_ - a clean theme for lilac. by `hit9 <https://github.com/hit9>`_
+- `classic <https://github.com/hit9/lilac-theme-classic>`_ - the old default theme for lilac. by `hit9 <https://github.com/hit9>`_
 
 - `pure <https://github.com/kshiftlv/lilac-theme-pure>`_ - by `kshiftlv <https://github.com/kshiftlv>`_
 

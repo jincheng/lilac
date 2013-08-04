@@ -1,10 +1,7 @@
-- [ ] more temaplates's
-- [x] add about and config.toml to watch
-- [x] need to init about,blog and author in models?
-- [x] exception capture for port
-- [x] intsall command now pip install -e "git+git://github.com/hit9/lilac.git@dev#egg=lilac" --upgrade
-- [x] add zh-docs
-- [x] readme
-- [ ] doc for theme dev
-- [ ] tags挂件
-- [ ] lilac archives 分页
+- [ ] Pagination for archives. url /archives.html => /archives/  (**Not backward compatible**)
+- [ ] Add global object g to store all vars in building progress, theme developers can get all vars( tags, posts, etc.) in any templates.
+- [ ] move disqus to theme.vars in config.toml
+- [x] add status for ililac
+- [ ] rename the sample post to helloworld.md
+- [x] jinja2 requirement versiion not correct now. We should use >= instead of ==
+- [ ] source datetime format

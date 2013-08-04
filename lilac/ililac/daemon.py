@@ -188,6 +188,23 @@ class Daemon(object):
         self.stop()
         self.start()
 
+    def status(self):
+        """report daemon status"""
+        try:
+            pf = file(self.pidfile,'r')
+            pid = int(pf.read().strip())
+            pf.close()
+        except IOError:
+            pid = None
+        except SystemExit:
+            pid = None
+
+        if pid:
+            logger.info("Running")
+        else:
+            logger.info("Stopped")
+
+
     def run(self):
         """
         You should override this method when you subclass Daemon. It will be called after the process has been

@@ -3,7 +3,7 @@ Lilac
 
 Lilac is a MIT Licensed static blog generator, written in Python. It's fast, simple enough and easy to use.
 
-Latest version: v0.3.7
+Latest version: v0.3.8
 
 Documentation is already on readthedocs: [English Version](https://lilac.readthedocs.org/), [简体中文版本](https://lilac-zh.readthedocs.org)
 
@@ -41,6 +41,10 @@ Installing pip...............done.
 $ . venv/bin/activate
 $ pip install lilac
 ```
+
+Installation troubles:
+
+- cann't find Python.h. Solution: install `python-dev` package (on ubuntu: `sudo apt-get install python-dev`. There's no such issue on OSX)
 
 Sample Post
 -----------
@@ -90,18 +94,18 @@ Themes
 You really should manage your theme in a standalone git repository, and use it as a submodule of your blog's
 submodule if your blog is under git versioning too.
 
-For instance, add theme classic a submodule of your blog's repo:
+For instance, add theme `less` a submodule of your blog's repo:
 
-    $ git submodule add git://github.com/hit9/lilac-theme-classic.git classic
+    $ git submodule add git://github.com/hit9/lilac-theme-less.git less
 
-If you want to modify a theme created by someone else(i.e. classic), just fork his(or her) repo, and then modify it.
+If you want to modify a theme created by someone else, just fork his(or her) repo, and then modify it.
 
 But it's 100% ok to use themes not in the submodule way.
 
 Theme list:
 
-- [classic](https://github.com/hit9/lilac-theme-classic) - the default theme for lilac. by @hit9
-- [less](https://github.com/hit9/lilac-theme-less) - a clean theme for lilac. by @hit9
+- [classic](https://github.com/hit9/lilac-theme-classic) -  by @hit9
+- [less](https://github.com/hit9/lilac-theme-less) - a clean theme for lilac. by @hit9 (now it's the default theme)
 - [pure](https://github.com/kshiftlv/lilac-theme-pure) - a clean theme for lilac by @kshiftlv
 
 Have you made one? Please send a pull request on lila's repo, append yours to this list.

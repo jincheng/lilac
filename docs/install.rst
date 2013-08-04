@@ -86,3 +86,17 @@ Whenever you want to upgrade your lilac to latest version:
 
 
 You may want to see the :ref:`Quick Start <quickstart>` part now.
+
+Installation trouble?
+---------------------
+
+If you meet problems similar to this: `Cann't find Python.h`, try to install Python development libraries.
+
+
+If your're using Ubuntu, install it via:
+
+.. code-block:: bash
+
+    $ [sudo] apt-get install python-dev
+
+There's no this issue on OS X.

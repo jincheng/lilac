@@ -12,15 +12,16 @@ setup(
     url='http://github.com/hit9/lilac',
     long_description=open('README.md').read(),
     packages=['lilac'],
-    include_package_data = True,
-    entry_points = {
+    include_package_data=True,
+    zip_safe=False,
+    entry_points={
         'console_scripts': [
             'lilac = lilac.cli:main',
             'ililac = lilac.ililac:main'
         ]
     },
-    install_requires = open("requirements.pip").read().splitlines(),
-    dependency_links = [
+    install_requires=open("requirements.pip").read().splitlines(),
+    dependency_links=[
         # 'https://github.com/mitsuhiko/jinja2/zipball/master#egg=jinja2-2.6',
         # 'https://pypi.python.org/packages/source/P/Pygments/Pygments-1.6.tar.gz',
         # 'https://pypi.python.org/packages/source/b/blinker/blinker-1.2.tar.gz',
