@@ -13,6 +13,7 @@ setup(
     long_description=open('README.md').read(),
     packages=['lilac'],
     include_package_data=True,
+    zip_safe=False,
     entry_points={
         'console_scripts': [
             'lilac = lilac.cli:main',
