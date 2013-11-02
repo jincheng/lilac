@@ -9,6 +9,8 @@ Documentation is already on readthedocs: [English Version](https://lilac.readthe
 
 News about lilac is here: http://lilac.hit9.org/
 
+Note: If you are looking for a small and fast one, check out [rux](https://github.com/hit9/rux)
+
 ![](./screen-shots/post.png)
 
 Features
