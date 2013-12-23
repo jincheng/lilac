@@ -32,8 +32,10 @@ class Generator(object):
     def reset(self):
         """reset all posts, tags, pages .etc."""
         self.posts = []
+        self.zhposts = []
         self.tags = []
         self.pages = []
+        self.zhpages = []
         self.about = about
         self.blog = blog
         self.author = author
@@ -129,6 +131,26 @@ class Generator(object):
     @step
     def parse_posts(self, sender):
         """Parse posts and sort them by create time"""
+        # glob all zh source files
+        try:
+            files = Post.glob_zh_src_files()
+        except SourceDirectoryNotFound as e:
+            logger.error(e.__doc__)
+            sys.exit(1)
+
+        for filepath, name in files.iteritems():        
+	    try:
+                post = parser.parse_from(filepath)
+            except ParseException, e:
+                logger.warn(e.__doc__ + ": filepath 's%'" % filepath)
+                pass # skip the wrong parsed post
+            else:
+                post.name = name # set it a name attribute
+                self.zhposts.append(post) # add post to page
+        self.zhposts.sort(
+            key=lambda post: post.datetime.timetuple(),
+            reverse=True
+        )
         # glob all source files
         try:
             files = Post.glob_src_files()
@@ -145,6 +167,7 @@ class Generator(object):
                 pass  # skip the wrong parsed post
             else:
                 post.name = name  # set it a name attribute
+                logger.info(post.name)
                 self.posts.append(post)
         # sort posts by its create time
         self.posts.sort(
@@ -180,11 +203,23 @@ class Generator(object):
         # but some themes need this, so lilac gets it from theme's conf,
         # by default: 7
         posts_count_per_page = self.theme.get("posts_count_per_page", 7)
+	
+	groups = chunks(self.zhposts, posts_count_per_page)
+        
+        for index, group in enumerate(groups):
+            logger.info("----zh page----")
+            self.zhpages.append(Page(number=index+1, zh=True, posts=list(group)))
+
+        if self.zhpages:
+            self.zhpages[0].first = True
+            self.zhpages[-1].last = True             
+        logger.success("zh Pages composed")        
 
         groups = chunks(self.posts, posts_count_per_page)  # 7 posts per page
 
         for index, group in enumerate(groups):
-            self.pages.append(Page(number=index+1, posts=list(group)))
+            logger.info("----page----")
+            self.pages.append(Page(number=index+1, zh=False, posts=list(group)))
 
         if self.pages:  # must not empty
             self.pages[0].first = True
@@ -204,6 +239,7 @@ class Generator(object):
     @step
     def render_posts(self, sender):
         """Render all posts to 'post/' with template 'post.html'"""
+	logger.info(Post.out_dir)
         mkdir_p(Post.out_dir)
 
         for post in self.posts:
@@ -225,9 +261,16 @@ class Generator(object):
     @step
     def render_pages(self, sender):
         """Render all pages to 'page/' with template 'page.html'"""
+	mkdir_p(Page.zh_out_dir)
+        
+        for page in self.zhpages:
+            self.render_to(page.out, Page.zh_template, page=page)
+        logger.success("zh Pages rendered")
+
         mkdir_p(Page.out_dir)
 
         for page in self.pages:
+            logger.info(page.out)
             self.render_to(page.out, Page.template, page=page)
         logger.success("Pages rendered")
 
@@ -248,6 +291,21 @@ class Generator(object):
     @step
     def generate_feed(self, sender):
         """Generate feed for first 10 posts to 'feed.atom'"""
+        for post in self.zhposts[:self.feed.size]:
+            try:
+                self.feed.feed.add(
+                    title=post.title,
+                    content=post.html,
+                    content_type="html",
+                    author=self.author.name,
+                    url=self.blog.url + "/" + post.out,
+                    updated=post.datetime,
+                    zh=post.zh
+                )
+            except Exception as e:
+                logger.warning(str(e))
+                pass # skip
+
         for post in self.posts[:self.feed.size]:
             try:
                 self.feed.feed.add(
@@ -256,12 +314,13 @@ class Generator(object):
                     content_type="html",
                     author=self.author.name,
                     url=self.blog.url + "/" + post.out,
-                    updated=post.datetime
+                    updated=post.datetime,
+                    zh=post.zh
                 )
             except Exception as e:
                 logger.warning(str(e))
                 pass  # skip
-
+        
         self.feed.write()
         logger.success("Feed generated")
 

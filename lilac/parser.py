@@ -112,6 +112,9 @@ class Parser(object):
             except ValueError:
                 raise PostDateTimeInvalid
 
+	if 'zh' not in attrs:
+            raise PostZhNotFound
+
         tags = attrs.get('tags', [])  # tags is optional
 
         if not isinstance(tags, list):

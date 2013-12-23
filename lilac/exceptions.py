@@ -43,6 +43,11 @@ class PostDateTimeInvalid(ParseException):
     pass
 
 
+class PostZhNotFound(ParseException):
+    """zh not found, default is en"""
+    pass
+
+
 class PostTagsTypeInvalid(ParseException):
     """Invalid tags datatype, should be a array"""
     pass

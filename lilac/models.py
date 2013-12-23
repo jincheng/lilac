@@ -2,7 +2,8 @@
 
 """models in lilac: Blog, Author, Post, Tag, Page"""
 
-
+import logging
+from .logger import logger
 from .exceptions import SourceDirectoryNotFound
 from . import src_ext, out_ext, src_dir, out_dir, charset
 
@@ -16,15 +17,17 @@ class Blog(object):
     """
     The blog itself.
     attributes
-      name        unicode     blog's name
-      description unicode     blog's description
-      url         str         blog's site url
-      theme   str             which theme to use
+      name           unicode     blog's name
+      zhdescription  unicode     blog's simple chinese description
+      description    unicode     blog's description
+      url            str         blog's site url
+      theme          str         which theme to use
     """
 
-    def __init__(self, name=None, description=None, url=None, theme=None):
+    def __init__(self, name=None, description=None, url=None, theme=None, zhdescription=None):
         self.name = name
         self.description = description
+        self.zhdescription = zhdescription
         self.url = url
         self.theme = theme
 
@@ -66,21 +69,24 @@ class Post(object):
       html      unicode  post's html(parrsed from markdown)
     the `html` is a property decorated method
     """
-
+    zh_src_dir = join(src_dir, "post/zh")
+    zh_out_dir = join(out_dir, "post/zh")
     src_dir = join(src_dir, "post")  # src directroy of posts
     out_dir = join(out_dir, "post")  # html directroy of posts
     template = "post.html"  # all posts are rendered with this template
 
     def __init__(
         self,
-        name=None, tags=None, title=None, datetime=None, markdown=None,
+        name=None, tags=None, title=None, datetime=None, markdown=None, zh=None,
         **other_attrs
     ):
         self.name = name
         self.title = title
         self.datetime = datetime
         self.markdown = markdown
-
+        self.zh = False
+        if zh is not None and "true" == zh.lower():
+            self.zh = True
         if tags is None:
             self.tags = []
         else:
@@ -111,12 +117,32 @@ class Post(object):
     @property
     def src(self):
         """Return the post's source filepath"""
+        if self.zh:
+            return join(Post.zh_src_dir, self.name + src_ext)
         return join(Post.src_dir, self.name + src_ext)
 
     @property
     def out(self):
         """Return the post's output(html) filepath"""
+        if self.zh:
+            return join(Post.zh_out_dir, self.name + out_ext)
         return join(Post.out_dir, self.name + out_ext)
+
+    @classmethod
+    def glob_zh_src_files(cls):
+        """Glob zh source files return filepath to name dict"""
+        if not exists(Post.zh_src_dir):
+            raise SourceDirectoryNotFound
+        
+        dct = {}
+        
+        for fn in ls(Post.zh_src_dir):
+            if fn.endswith(src_ext):
+                name = fn[:-len(src_ext)]
+                path = join(Post.zh_src_dir, fn)
+                dct[path] = name
+
+        return dct 
 
     @classmethod
     def glob_src_files(cls):
@@ -173,12 +199,14 @@ class Page(object):
 
     template = "page.html"
     out_dir = join(out_dir, "page")
+    zh_template = "zhpage.html"
+    zh_out_dir = join(out_dir, "page/zh")
 
-    def __init__(self, number=1, posts=None, first=False, last=False):
+    def __init__(self, number=1, zh=False ,posts=None, first=False, last=False):
         self.number = number
         self.first = first
         self.last = last
-
+        self.zh = zh
         if posts is None:
             self.posts = []
         else:
@@ -187,8 +215,12 @@ class Page(object):
     @property
     def out(self):
         if self.first:
+            if self.zh:
+                return join(out_dir + "/zh", "index" + out_ext)
             return join(out_dir, "index" + out_ext)
         else:
+            if self.zh:
+                return join(Page.zh_out_dir, str(self.number) + out_ext)
             return join(Page.out_dir, str(self.number) + out_ext)
 
 
